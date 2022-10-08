@@ -1,0 +1,6 @@
+{% if name -%}
+delete system ntp
+{%endif -%}
+{% for i in ntp -%}
+set system ntp server {{ i }}
+{% endfor %}
