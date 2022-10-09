@@ -1,6 +1,12 @@
-{% if name -%}
-delete system ntp
-{%endif -%}
-{% for i in ntp -%}
-set system ntp server {{ i }}
-{% endfor %}
+{{ hostname }}
+interface vxlan1
+vxlan source-interface loopback 1
+{%  for i in vlan -%}
+vxlan vlan {{ i }} vni {{ vni[0] }}
+{% endfor -%}
+vxlan flood vtep {{ vteps[0] }}
+
+router bgp {{ asn }}
+ router-id {{ router_id }}
+ neighbor {{  neighbor[0]  }} remote-as {{ remote_as }}
+ network {{ networks[0] }}

@@ -1,14 +1,20 @@
 ---
-Juniper:
-  DR:
-    vendor: Juniper 
-    model: qfx
-    ntp: 
-      - 5.5.5.5
-      - 6.6.6.6
-  PROD:
-    vendor: Juniper
-    model: qfx
-    ntp: 
-      - 1.1.1.1
-      - 2.2.2.2
+arista:
+  tor:
+    hostname: 'DC-1'
+    vlan:
+      - 100
+      - 200
+    vni:
+      - 10100
+    vteps:
+      - 12.0.0.12
+        13.0.0.13
+    bgp:
+      asn: 65001
+      router_id: 11.0.0.11
+      neighbor:
+        - 10.10.1.1
+      remote_as: 65000
+      networks:
+        - 11.0.0.11/32
