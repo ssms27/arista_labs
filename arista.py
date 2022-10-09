@@ -18,16 +18,16 @@ def get_ntp_config() -> object:
 def get_arista_config() -> object:
     global t
     r = yaml.safe_load(Path("arista.yaml").read_text())
-    print(t.render(hostname=r['arista']['tor']['hostname'],
-                   vlan=r['arista']['tor']['vlan'],
-                   vni=r['arista']['tor']['vni'],
-                   vteps=r['arista']['tor']['vteps'],
-                   asn=r['arista']['tor']['bgp']['asn'],
-                   router_id=r['arista']['tor']['bgp']['router_id'],
-                   neighbor=r['arista']['tor']['bgp']['neighbor'],
-                   remote_as=r['arista']['tor']['bgp']['remote_as'],
-                   networks=r['arista']['tor']['bgp']['networks']))
-
+    for i in r['arista']:
+        print(t.render(hostname=i['tor']['hostname'],
+                   vlan=i['tor']['vlan'],
+                   vteps=i['tor']['vteps'],
+                   vni=i['tor']['vni'],
+                   asn=i['tor']['bgp']['asn'],
+                   router_id=i['tor']['bgp']['router_id'],
+                   neighbor=i['tor']['bgp']['neighbor'],
+                   remote_as=i['tor']['bgp']['remote_as'],
+                   networks=i['tor']['bgp']['networks']))
 
 # get_ntp_config()
 get_arista_config()

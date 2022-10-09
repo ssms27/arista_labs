@@ -1,20 +1,53 @@
 ---
 arista:
-  tor:
-    hostname: 'DC-1'
-    vlan:
-      - 100
-      - 200
-    vni:
-      - 10100
-    vteps:
-      - 12.0.0.12
-        13.0.0.13
-    bgp:
-      asn: 65001
-      router_id: 11.0.0.11
-      neighbor:
-        - 10.10.1.1
-      remote_as: 65000
-      networks:
-        - 11.0.0.11/32
+  - tor:
+      hostname: 'DC-1'
+      vlan:
+        - 100
+      vni:
+        - 10100
+      vteps:
+        - 12.0.0.12
+          13.0.0.13
+      bgp:
+        asn: 65001
+        router_id: 11.0.0.11
+        neighbor:
+          - 10.10.1.1
+        remote_as: 65000
+        networks:
+          - 11.0.0.11/32
+  - tor:
+      hostname: 'DC-2'
+      vlan:
+        - 100
+      vni:
+        - 10100
+      vteps:
+        - 11.0.0.11
+          13.0.0.13
+      bgp:
+        asn: 65003
+        router_id: 12.0.0.12
+        neighbor:
+          - 10.10.3.1
+        remote_as: 65000
+        networks:
+          - 12.0.0.12/32
+  - tor:
+      hostname: 'DC-3'
+      vlan:
+        - 100
+      vni:
+        - 10100
+      vteps:
+        - 11.0.0.11
+          12.0.0.12
+      bgp:
+        asn: 65005
+        router_id: 13.0.0.13
+        neighbor:
+          - 10.10.5.1
+        remote_as: 65000
+        networks:
+          - 13.0.0.13/32
