@@ -17,6 +17,21 @@ arista:
         remote_as: 65000
         networks:
           - 11.0.0.11/32
+      interfaces:
+        ethernet1:
+           description: 'to_ss1'
+           ip_address: 10.10.1.2/30
+        ethernet2:
+          description: 'to_ss2'
+          ip_address: 10.10.7.2/30
+        loopback1:
+          description: 'loopback'
+          ip_address: 11.0.0.11/32
+        mgt1:
+          description: 'management'
+          ip_address: 10.27.0.2/24
+        vlan:
+          ip_address: 10.0.0.1/24
   - tor:
       hostname: 'DC-2'
       vlan:
@@ -34,6 +49,21 @@ arista:
         remote_as: 65000
         networks:
           - 12.0.0.12/32
+      interfaces:
+        ethernet1:
+          description: 'to_ss1'
+          ip_address: 10.10.3.2/30
+        ethernet2:
+          description: 'to_ss2'
+          ip_address: 10.10.9.2/30
+        loopback1:
+          description: 'loopback'
+          ip_address: 12.0.0.12/32
+        mgt1:
+          description: 'management'
+          ip_address: 10.27.0.3/24
+        vlan:
+          ip_address: 10.0.0.1/24
   - tor:
       hostname: 'DC-3'
       vlan:
@@ -51,3 +81,18 @@ arista:
         remote_as: 65000
         networks:
           - 13.0.0.13/32
+      interfaces:
+        ethernet1:
+           description: 'to_ss1'
+           ip_address: 10.10.5.2/30
+        ethernet2:
+          description: 'to_ss2'
+          ip_address: 10.10.11.2/30
+        loopback1:
+          description: 'loopback'
+          ip_address: 13.0.0.13/32
+        mgt1:
+          description: 'management'
+          ip_address: 10.27.0.4/24
+        vlan:
+          ip_address: 10.0.0.1/24

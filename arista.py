@@ -27,7 +27,13 @@ def get_arista_config() -> object:
                    router_id=i['tor']['bgp']['router_id'],
                    neighbor=i['tor']['bgp']['neighbor'],
                    remote_as=i['tor']['bgp']['remote_as'],
-                   networks=i['tor']['bgp']['networks']))
+                   networks=i['tor']['bgp']['networks'],
+                   mgt_ip_address=i['tor']['interfaces']['mgt1']['ip_address'],
+                   loopback_ip_address=i['tor']['interfaces']['loopback1']['ip_address'],
+                   ss1_ip_address=i['tor']['interfaces']['ethernet1']['ip_address'],
+                   ss2_ip_address=i['tor']['interfaces']['ethernet2']['ip_address'],
+                   ss1_desc=i['tor']['interfaces']['ethernet1']['description'],
+                   ss2_desc=i['tor']['interfaces']['ethernet2']['description']))
 
 # get_ntp_config()
 get_arista_config()

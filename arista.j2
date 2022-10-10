@@ -1,12 +1,42 @@
------
-{{ hostname }}
------
+!--------------------------------!
+!------------{{ hostname }}----------------!
+!--------------------------------!
+conf t
+hostname {{ hostname }}
+ip routing
+!
 interface vxlan1
 vxlan source-interface loopback 1
+vxlan udp-port 4789
 {%  for i in vlan -%}
 vxlan vlan {{ i }} vni {{ vni[0] }}
 {% endfor -%}
 vxlan flood vtep {{ vteps[0] }}
+!
+interface Management1
+ ip address {{ mgt_ip_address }}
+!
+interface loopback1
+  ip address {{ loopback_ip_address }}
+!
+interface Vlan {{ vlan[0] }}
+   description host-vlan
+   ip address {{ vlan_ip_address }}
+!
+interface Ethernet1
+  description {{ ss1_desc }}
+   no switchport
+   ip address {{ ss1_ip_address }}
+!
+interface Ethernet2
+  description {{ ss2_desc }}
+   no switchport
+   ip address {{ ss2_ip_address }}
+!
+!
+interface Ethernet8
+  description host11
+   switchport access vlan {{ vlan[0] }}
 !
 router bgp {{ asn }}
  router-id {{ router_id }}
