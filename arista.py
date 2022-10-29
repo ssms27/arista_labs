@@ -16,6 +16,7 @@ def get_ntp_config() -> object:
 
 
 def get_arista_config() -> object:
+    ''' Renders Arista Config'''
     global t
     r = yaml.safe_load(Path("arista.yaml").read_text())
     for i in r['arista']:
